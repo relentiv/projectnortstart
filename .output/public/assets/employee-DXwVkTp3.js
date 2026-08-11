@@ -1,0 +1,1 @@
+const t={full_time:"Full-time",part_time:"Part-time",contract:"Contract",intern:"Intern"},e={active:"Active",probation:"Probation",inactive:"Inactive",notice_period:"Notice period",exited:"Exited"};export{t as E,e as a};

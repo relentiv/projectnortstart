@@ -1,9 +1,10 @@
-import { Menu } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import { Avatar } from "../ui/Avatar";
 import { Button } from "../ui/Button";
 import { NotificationBell } from "../ess/NotificationBell";
 import { AiTopBarButton } from "../ai/AiTopBarButton";
 import { usePermission } from "@/lib/hooks/usePermission";
+import { uiStore } from "@/lib/store/ui";
 
 export interface TopBarProps {
   userName: string;
@@ -34,6 +35,16 @@ export function TopBar({ userName, companyName, roleLabel, onLogout, onMenu }: T
         </div>
       </div>
       <div className="flex items-center gap-1.5 sm:gap-3">
+        <button
+          type="button"
+          onClick={() => uiStore.openSearch()}
+          aria-label="Search"
+          className="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[13px] text-[#6B6B6B] bg-[#F9F9F7] border border-[#E5E5E3] hover:bg-[#F2F2F0] hover:text-[#0A0A0A] transition-colors"
+        >
+          <Search className="h-4 w-4" />
+          <span className="hidden sm:inline">Search...</span>
+          <kbd className="hidden md:inline-block text-[10px] font-mono bg-white border border-[#E5E5E3] px-1.5 py-0.5 rounded text-[#6B6B6B]">⌘K</kbd>
+        </button>
         {canChat && <AiTopBarButton />}
         <NotificationBell />
         <Avatar name={userName} size={32} />

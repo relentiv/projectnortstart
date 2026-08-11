@@ -8,3 +8,4 @@ export * from "./ImpersonationBanner";
 export * from "./MobileBottomNav";
 export * from "./RouteProgress";
 export * from "./RouteTransition";
+export * from "./GlobalSearchModal";

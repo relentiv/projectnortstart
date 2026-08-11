@@ -1,6 +1,7 @@
 /** Header notification bell with unread badge and dropdown panel. Client-only rendering to avoid hydration mismatch. */
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { Bell } from "lucide-react";
 import { essApi } from "@/lib/api/ess";
 import { cn } from "@/lib/utils";
 import { relativeTime } from "@/lib/utils/format";
@@ -53,7 +54,7 @@ export function NotificationBell() {
         onClick={() => setOpen((v) => !v)}
         className="relative w-9 h-9 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors"
       >
-        <span aria-hidden className="text-[17px] leading-none">🔔</span>
+        <Bell className="h-[18px] w-[18px] text-[#0A0A0A]" aria-hidden />
         {unread > 0 && (
           <span
             aria-hidden

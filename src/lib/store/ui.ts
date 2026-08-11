@@ -51,4 +51,13 @@ export const uiStore = {
   toggleAiPanel() {
     store.set((s) => ({ aiPanelOpen: !s.aiPanelOpen }));
   },
+  openSearch() {
+    store.set({ activeModalId: "search" });
+  },
+  closeSearch() {
+    store.set({ activeModalId: null });
+  },
+  toggleSearch() {
+    store.set((s) => ({ activeModalId: s.activeModalId === "search" ? null : "search" }));
+  },
 };

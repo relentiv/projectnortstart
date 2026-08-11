@@ -1,5 +1,6 @@
 /** Super admin sidebar — always Default Theme (no tenant vars). */
 import { Link, useRouterState } from "@tanstack/react-router";
+import { Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Item { label: string; to?: string; lockedNote?: string }
@@ -47,7 +48,7 @@ export function AdminSidebar({ adminName, onLogout }: { adminName: string; onLog
                         className="flex items-center gap-2 rounded-sm px-3 py-2 text-[14px] text-white/40 cursor-not-allowed"
                       >
                         <span className="flex-1">{it.label}</span>
-                        <span aria-hidden>🔒</span>
+                        <Lock className="h-3.5 w-3.5 text-white/40" aria-hidden />
                       </div>
                     </li>
                   );

@@ -8,6 +8,7 @@ import { ChevronDown, PanelLeftClose, PanelLeftOpen, Search, X } from "lucide-re
 import { cn } from "@/lib/utils";
 import { usePermission } from "@/lib/hooks/usePermission";
 import { authStore } from "@/lib/store/auth";
+import { uiStore } from "@/lib/store/ui";
 import { navForRole, type NavGroup, type NavNode } from "@/lib/config/navigation";
 import { NavIconGlyph } from "@/lib/config/navIcons";
 
@@ -212,11 +213,14 @@ function SidebarBody({
         <div className="px-3 pt-3">
           <button
             type="button"
-            onClick={() => uiPushComingSoon()}
-            className="w-full flex items-center gap-2 text-left text-[12px] text-[#6B6B6B] bg-white/60 border border-black/5 rounded-md px-3 py-2 hover:bg-white transition-colors"
+            onClick={() => uiStore.openSearch()}
+            className="w-full flex items-center justify-between gap-2 text-left text-[12px] text-[#6B6B6B] bg-white/60 border border-black/5 rounded-md px-3 py-2 hover:bg-white transition-colors"
           >
-            <Search className="h-3.5 w-3.5" aria-hidden />
-            Search…
+            <div className="flex items-center gap-2">
+              <Search className="h-3.5 w-3.5" aria-hidden />
+              <span>Search…</span>
+            </div>
+            <kbd className="text-[10px] font-mono opacity-60 bg-black/5 px-1 py-0.5 rounded">⌘K</kbd>
           </button>
         </div>
       )}

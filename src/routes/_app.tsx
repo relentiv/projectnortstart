@@ -7,7 +7,7 @@
  */
 import { useEffect, useState } from "react";
 import { Outlet, createFileRoute, useNavigate } from "@tanstack/react-router";
-import { Sidebar, TopBar, ImpersonationBanner, MobileBottomNav, RouteProgress, RouteTransition } from "@/lib/components/layout";
+import { Sidebar, TopBar, ImpersonationBanner, MobileBottomNav, RouteProgress, RouteTransition, GlobalSearchModal } from "@/lib/components/layout";
 import { AiChatPanel } from "@/lib/components/ai";
 import { authStore, impersonationStateStore } from "@/lib/store/auth";
 import { tenantStore } from "@/lib/store/tenant";
@@ -89,6 +89,7 @@ function AppLayout() {
         <MobileBottomNav />
       </div>
       <AiChatPanel />
+      <GlobalSearchModal />
     </div>
   );
 }
