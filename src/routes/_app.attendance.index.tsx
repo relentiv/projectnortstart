@@ -70,18 +70,10 @@ function MyAttendance() {
         <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-orange-500/15 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 min-w-0">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white/10 text-neutral-200 border border-white/15 backdrop-blur-md">
-              <Sparkles className="w-3 h-3 text-orange-400" />
-              Attendance Hub
-            </span>
-          </div>
-
           <h1 className="text-[28px] sm:text-[38px] font-extrabold tracking-tight text-white font-sans">
             My Attendance
           </h1>
           <p className="mt-1 text-[13px] sm:text-[14px] text-neutral-400 flex items-center gap-1.5 font-medium">
-            <Calendar className="w-3.5 h-3.5" />
             {dateLabel} · Track shifts, breaks & monthly timesheets
           </p>
         </div>

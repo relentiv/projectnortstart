@@ -1,0 +1,1 @@
+import{A as o}from"./index-DFzcEMLh.js";import{g as i}from"./rbac-CXakvsRD.js";const t={roleId:null,role:null,permissions:[]},r=o(t),a={...r,refresh(s,e){if(!s){r.set(t);return}r.set(i(s,e))}};export{a as r};

@@ -1,0 +1,1 @@
+import{j as n}from"./index-DFzcEMLh.js";import{B as r}from"./Badge-DmgHk6v7.js";const a={pending:"warning",approved:"success",rejected:"danger",cancelled:"default"},d={pending:"Pending",approved:"Approved",rejected:"Rejected",cancelled:"Cancelled"};function o({status:e}){return n.jsx(r,{variant:a[e],children:d[e]})}export{o as R};

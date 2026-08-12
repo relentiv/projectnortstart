@@ -1,5 +1,6 @@
 /** Three-dot dropdown for status transitions. */
 import { useEffect, useRef, useState } from "react";
+import { ChevronDown, MoreHorizontal, AlertTriangle, ShieldCheck } from "lucide-react";
 import type { EmploymentStatus } from "@/lib/types/employee";
 
 export interface StatusTransitionMenuProps {
@@ -39,6 +40,7 @@ export function StatusTransitionMenu({ status, onTransition }: StatusTransitionM
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
   const actions = ACTIONS[status];
+
   return (
     <div ref={ref} className="relative inline-block">
       <button
@@ -46,29 +48,47 @@ export function StatusTransitionMenu({ status, onTransition }: StatusTransitionM
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="menu"
         aria-expanded={open}
-        className="h-9 w-9 inline-flex items-center justify-center rounded-md border border-[#E5E5E3] bg-white hover:bg-[#F2F2F0]"
+        className="group inline-flex items-center gap-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 px-3.5 py-2.5 text-xs font-semibold text-white backdrop-blur-md transition-all active:scale-95 cursor-pointer"
       >
-        ⋯
+        <MoreHorizontal className="w-4 h-4 text-neutral-300 group-hover:text-white" />
+        <span>Actions</span>
+        <ChevronDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white transition-transform group-aria-expanded:rotate-180" />
       </button>
+
       {open && (
-        <div role="menu" className="absolute right-0 mt-1 w-56 rounded-md border border-[#E5E5E3] bg-white shadow-md z-20">
-          {actions.map((a) => (
-            <button
-              key={a.label}
-              type="button"
-              role="menuitem"
-              onClick={() => {
-                setOpen(false);
-                onTransition(a.to);
-              }}
-              className={
-                "block w-full text-left px-3 py-2 text-[13px] hover:bg-[#FAFAF8] " +
-                (a.danger ? "text-[#DC2626]" : "text-[#0A0A0A]")
-              }
-            >
-              {a.label}
-            </button>
-          ))}
+        <div
+          role="menu"
+          className="absolute right-0 mt-2 w-56 rounded-xl border border-[#E5E5E3] bg-white shadow-xl py-1.5 z-30 divide-y divide-[#F2F2F0] animate-in fade-in slide-in-from-top-1 duration-150"
+        >
+          <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[#8E8E8E]">
+            Status Transitions
+          </div>
+          <div className="py-1">
+            {actions.map((a) => (
+              <button
+                key={a.label}
+                type="button"
+                role="menuitem"
+                onClick={() => {
+                  setOpen(false);
+                  onTransition(a.to);
+                }}
+                className={
+                  "w-full text-left px-3.5 py-2 text-[13px] font-medium transition-colors flex items-center justify-between group cursor-pointer " +
+                  (a.danger
+                    ? "text-rose-600 hover:bg-rose-50"
+                    : "text-[#0A0A0A] hover:bg-[#FAFAF9] hover:text-orange-600")
+                }
+              >
+                <span>{a.label}</span>
+                {a.danger ? (
+                  <AlertTriangle className="w-3.5 h-3.5 text-rose-500 opacity-60 group-hover:opacity-100" />
+                ) : (
+                  <ShieldCheck className="w-3.5 h-3.5 text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                )}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

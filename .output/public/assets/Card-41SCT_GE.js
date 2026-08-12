@@ -1,0 +1,1 @@
+import{j as s,c as a}from"./index-DFzcEMLh.js";function d({padded:r=!0,className:e,...o}){return s.jsx("div",{className:a("bg-white rounded-lg border border-[#E5E5E3] shadow-[0_1px_2px_rgba(10,10,10,0.04)]",r&&"p-6",e),...o})}export{d as C};

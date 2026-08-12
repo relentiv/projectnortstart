@@ -1,4 +1,5 @@
 /** Search + filter bar above directory. */
+import { FilterX, Sparkles } from "lucide-react";
 import { SearchInput } from "@/lib/components/ui/SearchInput";
 import { MultiSelect } from "@/lib/components/ui/MultiSelect";
 import {
@@ -18,14 +19,45 @@ export interface EmployeeSearchFiltersProps {
 }
 
 export function EmployeeSearchFilters({ filters, onChange, departments, designations }: EmployeeSearchFiltersProps) {
-  const hasAny =
-    !!filters.q || !!filters.departmentId || !!filters.designationId || !!filters.types?.length || !!filters.statuses?.length;
+  const activeCount = [
+    !!filters.q,
+    !!filters.departmentId,
+    !!filters.designationId,
+    !!filters.types?.length,
+    !!filters.statuses?.length,
+  ].filter(Boolean).length;
+
+  const hasAny = activeCount > 0;
   const filteredDesigs = filters.departmentId
     ? designations.filter((d) => d.departmentIds.includes(filters.departmentId!))
     : designations;
 
   return (
-    <div className="rounded-md border border-[#E5E5E3] bg-white p-4">
+    <div className="rounded-2xl border border-[#E5E5E3] bg-white p-4 sm:p-5 shadow-xs space-y-4">
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500" />
+          <h2 className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#8E8E8E]">
+            Directory Search & Filters
+          </h2>
+          {hasAny && (
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-500/10 text-orange-600 border border-orange-500/20">
+              {activeCount} active filter{activeCount > 1 ? "s" : ""}
+            </span>
+          )}
+        </div>
+        {hasAny && (
+          <button
+            type="button"
+            onClick={() => onChange({})}
+            className="inline-flex items-center gap-1 text-[12px] font-semibold text-neutral-500 hover:text-orange-600 transition-colors"
+          >
+            <FilterX className="w-3.5 h-3.5" />
+            Reset all
+          </button>
+        )}
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
         <SearchInput
           placeholder="Search name, code, email…"
@@ -37,7 +69,7 @@ export function EmployeeSearchFilters({ filters, onChange, departments, designat
           aria-label="Department"
           value={filters.departmentId ?? ""}
           onChange={(e) => onChange({ ...filters, departmentId: e.target.value || undefined, designationId: undefined })}
-          className="h-10 px-3 rounded-md border border-[#E5E5E3] bg-white text-[14px]"
+          className="h-10 px-3.5 rounded-xl border border-[#E5E5E3] bg-[#FAFAF9] hover:bg-white focus:bg-white text-[13px] font-medium text-[#0A0A0A] transition-colors focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-hidden"
         >
           <option value="">All departments</option>
           {departments.map((d) => (
@@ -48,7 +80,7 @@ export function EmployeeSearchFilters({ filters, onChange, departments, designat
           aria-label="Designation"
           value={filters.designationId ?? ""}
           onChange={(e) => onChange({ ...filters, designationId: e.target.value || undefined })}
-          className="h-10 px-3 rounded-md border border-[#E5E5E3] bg-white text-[14px]"
+          className="h-10 px-3.5 rounded-xl border border-[#E5E5E3] bg-[#FAFAF9] hover:bg-white focus:bg-white text-[13px] font-medium text-[#0A0A0A] transition-colors focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-hidden"
         >
           <option value="">All designations</option>
           {filteredDesigs.map((d) => (
@@ -70,15 +102,6 @@ export function EmployeeSearchFilters({ filters, onChange, departments, designat
           />
         </div>
       </div>
-      {hasAny && (
-        <button
-          type="button"
-          onClick={() => onChange({})}
-          className="mt-3 text-[12px] text-[var(--tenant-primary)] hover:underline"
-        >
-          Clear all filters
-        </button>
-      )}
     </div>
   );
 }

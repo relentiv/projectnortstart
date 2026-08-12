@@ -1,1 +1,0 @@
-import{j as r}from"./index-CRBb0AmD.js";import{B as t}from"./Badge-UKVs02eD.js";import{L as n}from"./leave-BMGK6tPz.js";const o={draft:"default",pending:"warning",approved:"success",auto_approved:"success",rejected:"danger",cancelled:"default"};function c({status:e,className:a}){return r.jsx(t,{variant:o[e],className:a,children:n[e]})}export{c as L};

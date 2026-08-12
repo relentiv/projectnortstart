@@ -30,13 +30,6 @@ function RegularizationLayout() {
       {/* Minimal Header Card Surface */}
       <header className="rounded-3xl border border-[#E5E5E3] bg-white p-6 sm:p-7 shadow-xs relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="min-w-0">
-          <div className="flex items-center gap-2 mb-1.5">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-[#0A0A0A] text-white">
-              <Sparkles className="w-3 h-3 text-orange-400" />
-              Attendance Control
-            </span>
-          </div>
-
           <h1 className="text-[24px] sm:text-[28px] font-extrabold tracking-tight text-[#0A0A0A] font-sans">
             Regularization
           </h1>
@@ -79,11 +72,10 @@ function RegularizationLayout() {
               <Link
                 key={t.to}
                 to={t.to}
-                className={`inline-flex items-center gap-2 px-4 py-2 text-[13px] font-bold rounded-xl transition-all duration-200 ${
-                  active
-                    ? "bg-[#0A0A0A] text-white shadow-sm"
-                    : "text-[#6B6B6B] hover:text-[#0A0A0A] hover:bg-[#F2F2F0]"
-                }`}
+                className={`inline-flex items-center gap-2 px-4 py-2 text-[13px] font-bold rounded-xl transition-all duration-200 ${active
+                  ? "bg-[#0A0A0A] text-white shadow-sm"
+                  : "text-[#6B6B6B] hover:text-[#0A0A0A] hover:bg-[#F2F2F0]"
+                  }`}
               >
                 <Icon className={`w-4 h-4 ${active ? "text-orange-400" : "text-[#8E8E8E]"}`} />
                 {t.label}

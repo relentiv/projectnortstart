@@ -1,5 +1,5 @@
-/** A single chat message bubble — user right/tenant-primary, assistant left/white. */
-import { Spinner } from "@/lib/components/ui";
+/** A single chat message bubble — user right/obsidian dark, assistant left/white. */
+import { AlertCircle, Loader2, Sparkles } from "lucide-react";
 import type { AiChatMessage } from "@/lib/types/ai";
 import { cn } from "@/lib/utils";
 import { AiSourceCitation } from "./AiSourceCitation";
@@ -17,8 +17,9 @@ export function AiChatMessageBubble({ message, onFeedback, onFeedbackNote }: AiC
   if (message.isError) {
     return (
       <div className="flex justify-start">
-        <div className="max-w-[85%] rounded-md border border-[#FECACA] bg-[#FEF2F2] px-3.5 py-2.5 text-[13px] text-[#991B1B]">
-          {message.content}
+        <div className="max-w-[85%] rounded-2xl border border-rose-200/80 bg-rose-50/80 px-4 py-3 text-[13px] text-rose-800 flex items-start gap-2.5 shadow-2xs">
+          <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+          <div>{message.content}</div>
         </div>
       </div>
     );
@@ -28,15 +29,16 @@ export function AiChatMessageBubble({ message, onFeedback, onFeedbackNote }: AiC
     <div className={cn("flex", isUser ? "justify-end" : "justify-start")}>
       <div
         className={cn(
-          "max-w-[85%] rounded-md px-3.5 py-2.5 text-[13.5px] leading-relaxed whitespace-pre-wrap",
-          isUser ? "text-[var(--tenant-text-on-primary)]" : "bg-white border border-[#E5E5E3] text-[#0A0A0A]",
+          "max-w-[88%] rounded-2xl px-4 py-3 text-[13.5px] leading-relaxed whitespace-pre-wrap transition-all",
+          isUser
+            ? "bg-[#0A0A0A] text-white shadow-xs"
+            : "bg-white border border-[#E5E5E3] text-[#0A0A0A] shadow-2xs",
         )}
-        style={isUser ? { background: "var(--tenant-primary)" } : undefined}
       >
         {message.content}
         {!isUser && message.sources && message.sources.length > 0 && <AiSourceCitation sources={message.sources} />}
         {!isUser && message.unverified && (
-          <p className="mt-2 text-[12px] text-[#6B6B6B] italic">
+          <p className="mt-2 text-[12px] text-amber-700 bg-amber-50 px-2.5 py-1.5 rounded-xl border border-amber-200/60 font-medium">
             This answer could not be verified against your company data — please confirm with HR.
           </p>
         )}
@@ -51,10 +53,11 @@ export function AiChatMessageBubble({ message, onFeedback, onFeedbackNote }: AiC
 export function AiThinkingBubble() {
   return (
     <div className="flex justify-start">
-      <div className="max-w-[85%] rounded-md bg-white border border-[#E5E5E3] px-3.5 py-2.5 text-[13.5px] text-[#6B6B6B] flex items-center gap-2">
-        <Spinner size={14} />
-        Thinking…
+      <div className="max-w-[85%] rounded-2xl bg-white border border-[#E5E5E3] px-4 py-3 text-[13px] text-neutral-600 flex items-center gap-2.5 shadow-2xs">
+        <Sparkles className="w-4 h-4 text-orange-500 animate-pulse" />
+        <span className="font-medium animate-pulse">Thinking…</span>
       </div>
     </div>
   );
 }
+

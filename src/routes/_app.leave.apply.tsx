@@ -233,12 +233,7 @@ function ApplyLeavePage() {
       {/* Minimal Header Card Surface */}
       <header className="rounded-3xl border border-[#E5E5E3] bg-white p-6 sm:p-7 shadow-xs relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="min-w-0">
-          <div className="flex items-center gap-2 mb-1.5">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-[#0A0A0A] text-white">
-              <Plane className="w-3 h-3 text-orange-400" />
-              Time-off Request
-            </span>
-          </div>
+
           <h1 className="text-[24px] sm:text-[28px] font-extrabold tracking-tight text-[#0A0A0A] font-sans">
             Apply for Leave
           </h1>
@@ -305,18 +300,16 @@ function ApplyLeavePage() {
                     <button
                       type="button"
                       onClick={() => setIsHalfDay(false)}
-                      className={`px-3 py-1 text-[11px] font-extrabold rounded-lg transition-all ${
-                        !isHalfDay ? "bg-[#0A0A0A] text-white shadow-2xs" : "text-[#6B6B6B] hover:text-[#0A0A0A]"
-                      }`}
+                      className={`px-3 py-1 text-[11px] font-extrabold rounded-lg transition-all ${!isHalfDay ? "bg-[#0A0A0A] text-white shadow-2xs" : "text-[#6B6B6B] hover:text-[#0A0A0A]"
+                        }`}
                     >
                       Full Day(s)
                     </button>
                     <button
                       type="button"
                       onClick={() => setIsHalfDay(true)}
-                      className={`px-3 py-1 text-[11px] font-extrabold rounded-lg transition-all ${
-                        isHalfDay ? "bg-[#0A0A0A] text-white shadow-2xs" : "text-[#6B6B6B] hover:text-[#0A0A0A]"
-                      }`}
+                      className={`px-3 py-1 text-[11px] font-extrabold rounded-lg transition-all ${isHalfDay ? "bg-[#0A0A0A] text-white shadow-2xs" : "text-[#6B6B6B] hover:text-[#0A0A0A]"
+                        }`}
                     >
                       Half Day
                     </button>
@@ -335,11 +328,10 @@ function ApplyLeavePage() {
                     <button
                       type="button"
                       onClick={() => setHalfDayPeriod("first_half")}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
-                        halfDayPeriod === "first_half"
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${halfDayPeriod === "first_half"
                           ? "bg-orange-500 text-white border-orange-600 shadow-2xs"
                           : "bg-white text-[#404040] border-[#E5E5E3] hover:bg-orange-100/50"
-                      }`}
+                        }`}
                     >
                       <Sun className="w-3.5 h-3.5" />
                       First Half (Morning)
@@ -347,11 +339,10 @@ function ApplyLeavePage() {
                     <button
                       type="button"
                       onClick={() => setHalfDayPeriod("second_half")}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
-                        halfDayPeriod === "second_half"
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${halfDayPeriod === "second_half"
                           ? "bg-orange-500 text-white border-orange-600 shadow-2xs"
                           : "bg-white text-[#404040] border-[#E5E5E3] hover:bg-orange-100/50"
-                      }`}
+                        }`}
                     >
                       <Moon className="w-3.5 h-3.5" />
                       Second Half (Afternoon)
@@ -424,11 +415,10 @@ function ApplyLeavePage() {
               {/* Live Working Days Calculation Micro Box */}
               {startDate && endDate && (
                 <div
-                  className={`p-4 rounded-2xl border transition-all ${
-                    errors.balance
+                  className={`p-4 rounded-2xl border transition-all ${errors.balance
                       ? "bg-rose-50/50 border-rose-200 text-rose-900"
                       : "bg-[#FAFAF9] border-[#E5E5E3] text-[#0A0A0A]"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#8E8E8E] flex items-center gap-1.5">
@@ -453,9 +443,8 @@ function ApplyLeavePage() {
                       {selectedBalance.available > 0 && (
                         <div className="w-full bg-[#E5E5E3] h-1.5 rounded-full overflow-hidden">
                           <div
-                            className={`h-full rounded-full transition-all duration-300 ${
-                              workingDays > selectedBalance.available ? "bg-rose-500" : "bg-emerald-500"
-                            }`}
+                            className={`h-full rounded-full transition-all duration-300 ${workingDays > selectedBalance.available ? "bg-rose-500" : "bg-emerald-500"
+                              }`}
                             style={{
                               width: `${Math.min(100, (workingDays / selectedBalance.available) * 100)}%`,
                             }}

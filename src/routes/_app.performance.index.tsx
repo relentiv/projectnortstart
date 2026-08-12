@@ -138,13 +138,6 @@ function PerformanceDashboard() {
       {/* Minimal Header Card Surface */}
       <header className="rounded-3xl border border-[#E5E5E3] bg-white p-6 sm:p-7 shadow-xs relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="min-w-0">
-          <div className="flex items-center gap-2 mb-1.5">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-[#0A0A0A] text-white">
-              <Sparkles className="w-3 h-3 text-orange-400" />
-              Performance & OKRs
-            </span>
-          </div>
-
           <h1 className="text-[24px] sm:text-[28px] font-extrabold tracking-tight text-[#0A0A0A] font-sans">
             Performance Hub
           </h1>
@@ -237,12 +230,6 @@ function PerformanceDashboard() {
       <div className="rounded-3xl border border-[#E5E5E3] bg-white p-6 sm:p-7 shadow-xs relative overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 mb-4 border-b border-[#F2F2F0]">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-orange-50 text-orange-700 border border-orange-200">
-                <Clock className="w-3 h-3 text-orange-500" />
-                Active Review Cycle
-              </span>
-            </div>
             <h2 className="text-[20px] sm:text-[22px] font-extrabold text-[#0A0A0A] tracking-tight">
               {activeCycle ? activeCycle.name : "No Review Cycle Running Currently"}
             </h2>
@@ -369,7 +356,6 @@ function PerformanceDashboard() {
 
             <div className="relative z-10 flex items-center justify-between pb-4 mb-4 border-b border-[#262626]">
               <div className="flex items-center gap-2">
-                <Star className="w-4 h-4 text-orange-400 fill-orange-400" />
                 <h3 className="text-[16px] sm:text-[18px] font-bold text-white tracking-tight">
                   Recent Feedback & Score
                 </h3>
@@ -445,9 +431,8 @@ function PerformanceDashboard() {
 function PhaseStep({ label, active }: { label: string; active: boolean }) {
   return (
     <div
-      className={`p-3 rounded-2xl border flex items-center gap-2 transition-all ${
-        active ? "bg-[#0A0A0A] text-white border-[#0A0A0A]" : "bg-[#FAFAF9] text-[#8E8E8E] border-[#E5E5E3]"
-      }`}
+      className={`p-3 rounded-2xl border flex items-center gap-2 transition-all ${active ? "bg-[#0A0A0A] text-white border-[#0A0A0A]" : "bg-[#FAFAF9] text-[#8E8E8E] border-[#E5E5E3]"
+        }`}
     >
       <span className={`w-2 h-2 rounded-full ${active ? "bg-orange-500 animate-pulse" : "bg-[#D1D5DB]"}`} />
       <span className="font-bold text-[11px] truncate">{label}</span>

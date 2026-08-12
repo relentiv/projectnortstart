@@ -1,6 +1,7 @@
 /** Full-page AI Assistant — session rail + chat column. */
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { MessageSquare, Sparkles } from "lucide-react";
 import { Breadcrumb, Button, EmptyState, Modal } from "@/lib/components/ui";
 import { usePermission } from "@/lib/hooks/usePermission";
 import {
@@ -39,8 +40,8 @@ function AiAssistantPage() {
 
   if (!canChat) {
     return (
-      <div>
-        <Breadcrumb items={[{ label: "AI Assistant" }]} className="mb-4" />
+      <div className="space-y-4">
+        <Breadcrumb items={[{ label: "AI Assistant" }]} />
         <EmptyState
           title="You don't have access to the AI Assistant"
           subtitle="Contact your administrator if you believe this is a mistake."
@@ -68,24 +69,28 @@ function AiAssistantPage() {
   );
 
   return (
-    <div>
-      <Breadcrumb items={[{ label: "AI Assistant" }]} className="mb-4" />
-      <h1 className="text-[26px] font-semibold tracking-[-0.01em] text-[#0A0A0A] mb-1">AI Assistant</h1>
-      <p className="text-[14px] text-[#6B6B6B] mb-6">Ask about leave, payroll, policies, and your pending approvals.</p>
-
-      <div className="md:hidden mb-4">
-        <Button variant="secondary" size="sm" onClick={() => setMobileSessionsOpen(true)}>
-          Conversations
+    <div className="flex flex-col h-[calc(100dvh-185px)] md:h-[calc(100vh-115px)] space-y-3">
+      <div className="md:hidden shrink-0">
+        <Button
+          variant="secondary"
+          size="sm"
+          onClick={() => setMobileSessionsOpen(true)}
+          className="rounded-xl w-full flex items-center justify-center font-bold shrink-0 py-2.5"
+        >
+          <MessageSquare className="w-4 h-4 mr-2 text-orange-600 shrink-0" />
+          <span className="shrink-0">Conversations</span>
         </Button>
       </div>
 
-      <div className="flex gap-4 h-[calc(100vh-260px)] min-h-[420px]">
-        <div className="hidden md:block w-60 shrink-0 rounded-md border border-[#E5E5E3] bg-white overflow-hidden">
+      <div className="flex flex-1 min-h-0 gap-4">
+        {/* Desktop Session Sidebar */}
+        <div className="hidden md:block w-64 shrink-0 rounded-2xl border border-[#E5E5E3] bg-white overflow-hidden shadow-xs">
           {sessionRail}
         </div>
 
-        <div className="flex-1 min-w-0 rounded-md border border-[#E5E5E3] bg-[#F9F9F7] flex flex-col overflow-hidden">
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3">
+        {/* Chat Main Column */}
+        <div className="flex-1 min-w-0 rounded-2xl border border-[#E5E5E3] bg-[#FAFAF9] shadow-xs flex flex-col overflow-hidden">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-3.5 sm:p-5 space-y-4">
             {messages.map((m) => (
               <AiChatMessageBubble key={m.id} message={m} onFeedback={(v) => chat.setFeedback(m.id, v ?? null)} />
             ))}
@@ -95,9 +100,16 @@ function AiAssistantPage() {
               <AiSuggestedPrompts role={chat.role} onSelect={(p) => void chat.send(p)} />
             )}
           </div>
-          <AiChatInput onSend={(t) => void chat.send(t)} disabled={chat.sending || chat.cooldown} cooldown={chat.cooldown} />
+          <AiChatInput
+            onSend={(t) => void chat.send(t)}
+            onNewSession={() => void chat.newSession()}
+            onToggleHistory={() => setMobileSessionsOpen(true)}
+            disabled={chat.sending || chat.cooldown}
+            cooldown={chat.cooldown}
+          />
         </div>
       </div>
+
 
       <Modal open={mobileSessionsOpen} onClose={() => setMobileSessionsOpen(false)} title="Conversations">
         <div className="h-96 -mx-6 -mb-6">{sessionRail}</div>
@@ -105,3 +117,6 @@ function AiAssistantPage() {
     </div>
   );
 }
+
+
+
