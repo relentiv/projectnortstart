@@ -75,7 +75,7 @@ const createLucideIcon = (iconName, iconNode) => {
   Component.displayName = toPascalCase(iconName);
   return Component;
 };
-const __iconNode$1g = [
+const __iconNode$1h = [
   [
     "path",
     {
@@ -84,18 +84,18 @@ const __iconNode$1g = [
     }
   ]
 ];
-const Activity = createLucideIcon("activity", __iconNode$1g);
-const __iconNode$1f = [
+const Activity = createLucideIcon("activity", __iconNode$1h);
+const __iconNode$1g = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
 ];
-const ArrowRight = createLucideIcon("arrow-right", __iconNode$1f);
-const __iconNode$1e = [
+const ArrowRight = createLucideIcon("arrow-right", __iconNode$1g);
+const __iconNode$1f = [
   ["path", { d: "M7 7h10v10", key: "1tivn9" }],
   ["path", { d: "M7 17 17 7", key: "1vkiza" }]
 ];
-const ArrowUpRight = createLucideIcon("arrow-up-right", __iconNode$1e);
-const __iconNode$1d = [
+const ArrowUpRight = createLucideIcon("arrow-up-right", __iconNode$1f);
+const __iconNode$1e = [
   [
     "path",
     {
@@ -105,8 +105,8 @@ const __iconNode$1d = [
   ],
   ["circle", { cx: "12", cy: "8", r: "6", key: "1vp47v" }]
 ];
-const Award = createLucideIcon("award", __iconNode$1d);
-const __iconNode$1c = [
+const Award = createLucideIcon("award", __iconNode$1e);
+const __iconNode$1d = [
   [
     "path",
     {
@@ -116,14 +116,14 @@ const __iconNode$1c = [
   ],
   ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
 ];
-const BadgeCheck = createLucideIcon("badge-check", __iconNode$1c);
-const __iconNode$1b = [
+const BadgeCheck = createLucideIcon("badge-check", __iconNode$1d);
+const __iconNode$1c = [
   ["rect", { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" }],
   ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
   ["path", { d: "M6 12h.01M18 12h.01", key: "113zkx" }]
 ];
-const Banknote = createLucideIcon("banknote", __iconNode$1b);
-const __iconNode$1a = [
+const Banknote = createLucideIcon("banknote", __iconNode$1c);
+const __iconNode$1b = [
   ["path", { d: "M10.268 21a2 2 0 0 0 3.464 0", key: "vwvbt9" }],
   [
     "path",
@@ -133,8 +133,8 @@ const __iconNode$1a = [
     }
   ]
 ];
-const Bell = createLucideIcon("bell", __iconNode$1a);
-const __iconNode$19 = [
+const Bell = createLucideIcon("bell", __iconNode$1b);
+const __iconNode$1a = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -144,13 +144,13 @@ const __iconNode$19 = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$19);
-const __iconNode$18 = [
+const BookOpen = createLucideIcon("book-open", __iconNode$1a);
+const __iconNode$19 = [
   ["path", { d: "M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16", key: "jecpp" }],
   ["rect", { width: "20", height: "14", x: "2", y: "6", rx: "2", key: "i6l2r4" }]
 ];
-const Briefcase = createLucideIcon("briefcase", __iconNode$18);
-const __iconNode$17 = [
+const Briefcase = createLucideIcon("briefcase", __iconNode$19);
+const __iconNode$18 = [
   ["path", { d: "M10 12h4", key: "a56b0p" }],
   ["path", { d: "M10 8h4", key: "1sr2af" }],
   ["path", { d: "M14 21v-3a2 2 0 0 0-4 0v3", key: "1rgiei" }],
@@ -163,8 +163,8 @@ const __iconNode$17 = [
   ],
   ["path", { d: "M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16", key: "16ra0t" }]
 ];
-const Building2 = createLucideIcon("building-2", __iconNode$17);
-const __iconNode$16 = [
+const Building2 = createLucideIcon("building-2", __iconNode$18);
+const __iconNode$17 = [
   ["path", { d: "M12 10h.01", key: "1nrarc" }],
   ["path", { d: "M12 14h.01", key: "1etili" }],
   ["path", { d: "M12 6h.01", key: "1vi96p" }],
@@ -177,8 +177,8 @@ const __iconNode$16 = [
   ["path", { d: "M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3", key: "cabbwy" }],
   ["rect", { x: "4", y: "2", width: "16", height: "20", rx: "2", key: "1uxh74" }]
 ];
-const Building = createLucideIcon("building", __iconNode$16);
-const __iconNode$15 = [
+const Building = createLucideIcon("building", __iconNode$17);
+const __iconNode$16 = [
   ["path", { d: "M8 2v4", key: "1cmpym" }],
   ["path", { d: "M16 2v4", key: "4m81vk" }],
   ["rect", { width: "18", height: "18", x: "3", y: "4", rx: "2", key: "1hopcy" }],
@@ -190,40 +190,46 @@ const __iconNode$15 = [
   ["path", { d: "M12 18h.01", key: "mhygvu" }],
   ["path", { d: "M16 18h.01", key: "kzsmim" }]
 ];
-const CalendarDays = createLucideIcon("calendar-days", __iconNode$15);
-const __iconNode$14 = [
+const CalendarDays = createLucideIcon("calendar-days", __iconNode$16);
+const __iconNode$15 = [
   ["path", { d: "M8 2v4", key: "1cmpym" }],
   ["path", { d: "M16 2v4", key: "4m81vk" }],
   ["rect", { width: "18", height: "18", x: "3", y: "4", rx: "2", key: "1hopcy" }],
   ["path", { d: "M3 10h18", key: "8toen8" }]
 ];
-const Calendar = createLucideIcon("calendar", __iconNode$14);
-const __iconNode$13 = [
+const Calendar = createLucideIcon("calendar", __iconNode$15);
+const __iconNode$14 = [
   ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
   ["path", { d: "M18 17V9", key: "2bz60n" }],
   ["path", { d: "M13 17V5", key: "1frdt8" }],
   ["path", { d: "M8 17v-3", key: "17ska0" }]
 ];
-const ChartColumn = createLucideIcon("chart-column", __iconNode$13);
-const __iconNode$12 = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$12);
-const __iconNode$11 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$11);
-const __iconNode$10 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
-const ChevronLeft = createLucideIcon("chevron-left", __iconNode$10);
-const __iconNode$$ = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$$);
-const __iconNode$_ = [
+const ChartColumn = createLucideIcon("chart-column", __iconNode$14);
+const __iconNode$13 = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$13);
+const __iconNode$12 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$12);
+const __iconNode$11 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon("chevron-left", __iconNode$11);
+const __iconNode$10 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$10);
+const __iconNode$$ = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
   ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
 ];
-const CircleAlert = createLucideIcon("circle-alert", __iconNode$_);
-const __iconNode$Z = [
+const CircleAlert = createLucideIcon("circle-alert", __iconNode$$);
+const __iconNode$_ = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
 ];
-const CircleCheck = createLucideIcon("circle-check", __iconNode$Z);
+const CircleCheck = createLucideIcon("circle-check", __iconNode$_);
+const __iconNode$Z = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m15 9-6 6", key: "1uzhvr" }],
+  ["path", { d: "m9 9 6 6", key: "z0biqf" }]
+];
+const CircleX = createLucideIcon("circle-x", __iconNode$Z);
 const __iconNode$Y = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M12 6v6l4 2", key: "mmk7yg" }]
@@ -812,18 +818,19 @@ export {
   Save as ac,
   Send as ad,
   Funnel as ae,
-  Sun as af,
-  Moon as ag,
-  Info as ah,
-  FolderCheck as ai,
-  ShieldAlert as aj,
-  Building2 as ak,
-  Banknote as al,
-  TreePalm as am,
-  Star as an,
-  Image as ao,
-  File as ap,
-  SquareCheckBig as aq,
+  CircleX as af,
+  Sun as ag,
+  Moon as ah,
+  Info as ai,
+  FolderCheck as aj,
+  ShieldAlert as ak,
+  Building2 as al,
+  Banknote as am,
+  TreePalm as an,
+  Star as ao,
+  Image as ap,
+  File as aq,
+  SquareCheckBig as ar,
   ExternalLink as b,
   CalendarDays as c,
   Target as d,

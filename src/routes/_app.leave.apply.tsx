@@ -268,8 +268,8 @@ function ApplyLeavePage() {
         <div className="lg:col-span-3 space-y-6">
           <div className="rounded-3xl border border-[#E5E5E3] bg-white p-6 sm:p-7 shadow-xs space-y-6">
             {/* Step 1: Select Leave Type */}
-            <div>
-              <label className="text-[12px] font-extrabold uppercase tracking-wider text-[#8E8E8E] block mb-2">
+            <div className="space-y-2">
+              <label className="text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#8E8E8E] block">
                 1. Select Leave Type
               </label>
               <Select
@@ -280,7 +280,7 @@ function ApplyLeavePage() {
                 error={errors.leaveTypeId}
               />
               {selectedType && (
-                <div className="mt-2.5 flex items-center gap-2 p-3 rounded-2xl bg-[#FAFAF9] border border-[#E5E5E3]">
+                <div className="mt-3 flex items-center gap-3 p-3.5 rounded-2xl bg-[#FAFAF9] border border-[#E5E5E3]">
                   <LeaveTypeBadge leaveType={selectedType} />
                   <span className="text-[12px] text-[#6B6B6B] font-medium">{selectedType.description}</span>
                 </div>
@@ -288,9 +288,9 @@ function ApplyLeavePage() {
             </div>
 
             {/* Step 2: Enhanced Date Selection UX */}
-            <div className="pt-4 border-t border-[#F2F2F0] space-y-4">
-              <div className="flex items-center justify-between">
-                <label className="text-[12px] font-extrabold uppercase tracking-wider text-[#8E8E8E] block">
+            <div className="pt-5 border-t border-[#F2F2F0] space-y-5">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <label className="text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#8E8E8E] block">
                   2. Choose Dates & Duration
                 </label>
 
@@ -300,16 +300,22 @@ function ApplyLeavePage() {
                     <button
                       type="button"
                       onClick={() => setIsHalfDay(false)}
-                      className={`px-3 py-1 text-[11px] font-extrabold rounded-lg transition-all ${!isHalfDay ? "bg-[#0A0A0A] text-white shadow-2xs" : "text-[#6B6B6B] hover:text-[#0A0A0A]"
-                        }`}
+                      className={`px-3 py-1 text-[11px] font-extrabold rounded-lg transition-all ${
+                        !isHalfDay
+                          ? "bg-[#0A0A0A] text-white shadow-2xs"
+                          : "text-[#6B6B6B] hover:text-[#0A0A0A]"
+                      }`}
                     >
                       Full Day(s)
                     </button>
                     <button
                       type="button"
                       onClick={() => setIsHalfDay(true)}
-                      className={`px-3 py-1 text-[11px] font-extrabold rounded-lg transition-all ${isHalfDay ? "bg-[#0A0A0A] text-white shadow-2xs" : "text-[#6B6B6B] hover:text-[#0A0A0A]"
-                        }`}
+                      className={`px-3 py-1 text-[11px] font-extrabold rounded-lg transition-all ${
+                        isHalfDay
+                          ? "bg-[#0A0A0A] text-white shadow-2xs"
+                          : "text-[#6B6B6B] hover:text-[#0A0A0A]"
+                      }`}
                     >
                       Half Day
                     </button>
@@ -319,7 +325,7 @@ function ApplyLeavePage() {
 
               {/* Half Day Period Selection Pills */}
               {isHalfDay && (
-                <div className="p-3 rounded-2xl bg-orange-50/40 border border-orange-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-in fade-in duration-150">
+                <div className="p-3.5 rounded-2xl bg-orange-50/50 border border-orange-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-in fade-in duration-150">
                   <span className="text-[12px] font-bold text-orange-950 flex items-center gap-1.5">
                     <Zap className="w-3.5 h-3.5 text-orange-500" />
                     Half Day Slot:
@@ -328,10 +334,11 @@ function ApplyLeavePage() {
                     <button
                       type="button"
                       onClick={() => setHalfDayPeriod("first_half")}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${halfDayPeriod === "first_half"
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+                        halfDayPeriod === "first_half"
                           ? "bg-orange-500 text-white border-orange-600 shadow-2xs"
                           : "bg-white text-[#404040] border-[#E5E5E3] hover:bg-orange-100/50"
-                        }`}
+                      }`}
                     >
                       <Sun className="w-3.5 h-3.5" />
                       First Half (Morning)
@@ -339,10 +346,11 @@ function ApplyLeavePage() {
                     <button
                       type="button"
                       onClick={() => setHalfDayPeriod("second_half")}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${halfDayPeriod === "second_half"
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+                        halfDayPeriod === "second_half"
                           ? "bg-orange-500 text-white border-orange-600 shadow-2xs"
                           : "bg-white text-[#404040] border-[#E5E5E3] hover:bg-orange-100/50"
-                        }`}
+                      }`}
                     >
                       <Moon className="w-3.5 h-3.5" />
                       Second Half (Afternoon)
@@ -352,43 +360,43 @@ function ApplyLeavePage() {
               )}
 
               {/* Quick Date Shortcuts Bar */}
-              <div className="space-y-1.5">
-                <span className="text-[11px] font-bold text-[#8E8E8E] flex items-center gap-1">
-                  <Zap className="w-3 h-3 text-orange-500" /> Quick Date Selection:
+              <div className="space-y-2">
+                <span className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#8E8E8E] flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-orange-500" /> Quick Date Shortcuts:
                 </span>
-                <div className="flex flex-wrap items-center gap-1.5">
+                <div className="flex flex-wrap items-center gap-2">
                   <button
                     type="button"
                     onClick={() => handleShortcut("today")}
-                    className="px-2.5 py-1 rounded-xl text-[11px] font-semibold bg-[#FAFAF9] hover:bg-[#F2F2F0] text-[#0A0A0A] border border-[#E5E5E3] active:scale-95 transition-all"
+                    className="px-3 py-1.5 rounded-xl text-[12px] font-bold bg-[#FAFAF9] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-white border border-[#E5E5E3] active:scale-95 transition-all shadow-2xs"
                   >
                     Today
                   </button>
                   <button
                     type="button"
                     onClick={() => handleShortcut("tomorrow")}
-                    className="px-2.5 py-1 rounded-xl text-[11px] font-semibold bg-[#FAFAF9] hover:bg-[#F2F2F0] text-[#0A0A0A] border border-[#E5E5E3] active:scale-95 transition-all"
+                    className="px-3 py-1.5 rounded-xl text-[12px] font-bold bg-[#FAFAF9] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-white border border-[#E5E5E3] active:scale-95 transition-all shadow-2xs"
                   >
                     Tomorrow
                   </button>
                   <button
                     type="button"
                     onClick={() => handleShortcut("next_2")}
-                    className="px-2.5 py-1 rounded-xl text-[11px] font-semibold bg-[#FAFAF9] hover:bg-[#F2F2F0] text-[#0A0A0A] border border-[#E5E5E3] active:scale-95 transition-all"
+                    className="px-3 py-1.5 rounded-xl text-[12px] font-bold bg-[#FAFAF9] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-white border border-[#E5E5E3] active:scale-95 transition-all shadow-2xs"
                   >
                     Next 2 Days
                   </button>
                   <button
                     type="button"
                     onClick={() => handleShortcut("this_week")}
-                    className="px-2.5 py-1 rounded-xl text-[11px] font-semibold bg-[#FAFAF9] hover:bg-[#F2F2F0] text-[#0A0A0A] border border-[#E5E5E3] active:scale-95 transition-all"
+                    className="px-3 py-1.5 rounded-xl text-[12px] font-bold bg-[#FAFAF9] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-white border border-[#E5E5E3] active:scale-95 transition-all shadow-2xs"
                   >
                     This Week
                   </button>
                   <button
                     type="button"
                     onClick={() => handleShortcut("next_week")}
-                    className="px-2.5 py-1 rounded-xl text-[11px] font-semibold bg-[#FAFAF9] hover:bg-[#F2F2F0] text-[#0A0A0A] border border-[#E5E5E3] active:scale-95 transition-all"
+                    className="px-3 py-1.5 rounded-xl text-[12px] font-bold bg-[#FAFAF9] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-white border border-[#E5E5E3] active:scale-95 transition-all shadow-2xs"
                   >
                     Next Week
                   </button>
@@ -409,31 +417,32 @@ function ApplyLeavePage() {
                   nonWorkingDays={calendar.nonWorkingDays}
                   singleDay={isHalfDay}
                 />
-                {errors.dates && <p className="mt-1.5 text-[13px] text-rose-600 font-semibold">{errors.dates}</p>}
+                {errors.dates && <p className="mt-2 text-[13px] text-rose-600 font-bold">{errors.dates}</p>}
               </div>
 
               {/* Live Working Days Calculation Micro Box */}
               {startDate && endDate && (
                 <div
-                  className={`p-4 rounded-2xl border transition-all ${errors.balance
-                      ? "bg-rose-50/50 border-rose-200 text-rose-900"
+                  className={`p-4 rounded-2xl border transition-all ${
+                    errors.balance
+                      ? "bg-rose-50/60 border-rose-200 text-rose-950"
                       : "bg-[#FAFAF9] border-[#E5E5E3] text-[#0A0A0A]"
-                    }`}
+                  }`}
                 >
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#8E8E8E] flex items-center gap-1.5">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#8E8E8E] flex items-center gap-1.5">
                       <CalendarDays className="w-3.5 h-3.5 text-orange-500" />
                       Working Day Calculation
                     </span>
-                    <span className="text-[16px] font-extrabold tabular-nums text-[#0A0A0A]">
+                    <span className="text-[18px] font-extrabold tabular-nums text-[#0A0A0A]">
                       {workingDays} {workingDays === 1 ? "Day" : "Days"}
                     </span>
                   </div>
 
                   {selectedBalance ? (
-                    <div className="space-y-2 mt-2 pt-2 border-t border-[#E5E5E3]">
+                    <div className="space-y-2.5 mt-2.5 pt-2.5 border-t border-[#E5E5E3]/80">
                       <div className="flex justify-between text-[12px]">
-                        <span className="text-[#6B6B6B]">Available Allocation:</span>
+                        <span className="text-[#6B6B6B] font-medium">Available Allocation:</span>
                         <span className="font-bold tabular-nums text-[#0A0A0A]">
                           {selectedBalance.available} {selectedBalance.leaveType.name}
                         </span>
@@ -441,10 +450,11 @@ function ApplyLeavePage() {
 
                       {/* Micro Progress Bar */}
                       {selectedBalance.available > 0 && (
-                        <div className="w-full bg-[#E5E5E3] h-1.5 rounded-full overflow-hidden">
+                        <div className="w-full bg-[#E5E5E3] h-2 rounded-full overflow-hidden">
                           <div
-                            className={`h-full rounded-full transition-all duration-300 ${workingDays > selectedBalance.available ? "bg-rose-500" : "bg-emerald-500"
-                              }`}
+                            className={`h-full rounded-full transition-all duration-300 ${
+                              workingDays > selectedBalance.available ? "bg-rose-500" : "bg-emerald-500"
+                            }`}
                             style={{
                               width: `${Math.min(100, (workingDays / selectedBalance.available) * 100)}%`,
                             }}
@@ -453,20 +463,21 @@ function ApplyLeavePage() {
                       )}
 
                       {errors.balance && (
-                        <p className="text-[12px] text-rose-600 font-semibold flex items-center gap-1">
+                        <p className="text-[12px] text-rose-600 font-bold flex items-center gap-1 mt-1">
                           <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                           {errors.balance}
                         </p>
                       )}
                     </div>
                   ) : (
-                    <p className="text-[12px] text-[#6B6B6B] mt-1">
+                    <p className="text-[12px] text-[#6B6B6B] mt-1 font-medium">
                       Unallocated or loss of pay leave type selected.
                     </p>
                   )}
                 </div>
               )}
             </div>
+
 
             {/* Step 3: Reason & Supporting Attachment */}
             <div className="pt-4 border-t border-[#F2F2F0] space-y-4">

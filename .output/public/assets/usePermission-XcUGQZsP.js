@@ -1,1 +1,0 @@
-import{r as a}from"./index-DFzcEMLh.js";import{r as n}from"./rbac-CeoCwlut.js";function c(r,o="any"){const t=n.useSelector(e=>e.permissions);return a.useMemo(()=>{const e=new Set(t.map(s=>s.key));return typeof r=="string"?e.has(r):o==="all"?r.every(s=>e.has(s)):r.some(s=>e.has(s))},[t,r,o])}export{c as u};

@@ -1,0 +1,1 @@
+import{j as n}from"./index-DlX_L1Z2.js";import{B as t}from"./Badge-nRe59W2R.js";const r={active:{variant:"success",label:"Active"},trial:{variant:"warning",label:"Trial"},suspended:{variant:"danger",label:"Suspended"},churned:{variant:"default",label:"Churned"}};function l({status:e}){const a=r[e];return n.jsx(t,{variant:a.variant,children:a.label})}export{l as T};

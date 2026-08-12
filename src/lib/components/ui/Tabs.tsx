@@ -43,13 +43,19 @@ export function Tabs({ tabs, defaultTab, activeTab, onTabChange, className }: Ta
 
   return (
     <div className={className}>
-      <div role="tablist" aria-label="Tabs" className="flex gap-6 border-b border-[#E5E5E3]">
+      <div
+        role="tablist"
+        aria-label="Tabs"
+        className="flex items-center gap-1 sm:gap-2 border-b border-[#E5E5E3] overflow-x-auto no-scrollbar scroll-smooth w-full flex-nowrap pb-px"
+      >
         {tabs.map((t, i) => {
           const selected = t.id === active;
           return (
             <button
               key={t.id}
-              ref={(el) => { refs.current[t.id] = el; }}
+              ref={(el) => {
+                refs.current[t.id] = el;
+              }}
               role="tab"
               type="button"
               id={`${id}-trigger-${t.id}`}
@@ -59,19 +65,28 @@ export function Tabs({ tabs, defaultTab, activeTab, onTabChange, className }: Ta
               onClick={() => setActive(t.id)}
               onKeyDown={(e) => onKey(e, i)}
               className={cn(
-                "relative py-3 text-[14px] font-medium transition-colors duration-150 outline-none",
-                "focus-visible:text-[var(--tenant-primary)]",
-                selected ? "text-[var(--tenant-primary)]" : "text-[#6B6B6B] hover:text-[#0A0A0A]",
+                "relative px-3.5 py-2.5 sm:px-4 sm:py-3 text-[13px] sm:text-[14px] font-bold tracking-tight rounded-t-xl transition-all duration-150 outline-none whitespace-nowrap shrink-0 flex items-center gap-1.5 cursor-pointer",
+                selected
+                  ? "text-[#0A0A0A] bg-[#FAFAF9]"
+                  : "text-[#6B6B6B] hover:text-[#0A0A0A] hover:bg-[#FAFAF9]/60",
               )}
             >
               {t.label}
               {typeof t.badge === "number" && t.badge > 0 && (
-                <span className="ml-1.5 inline-flex items-center rounded-full bg-[#F2F2F0] px-1.5 py-0.5 text-[11px] font-semibold text-[#6B6B6B]">
+                <span
+                  className={cn(
+                    "ml-1 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-bold tabular-nums",
+                    selected ? "bg-[#0A0A0A] text-white" : "bg-[#E5E5E3] text-[#6B6B6B]",
+                  )}
+                >
                   {t.badge}
                 </span>
               )}
               {selected && (
-                <span className="absolute inset-x-0 -bottom-px h-0.5" style={{ background: "var(--tenant-primary)" }} aria-hidden />
+                <span
+                  className="absolute inset-x-0 -bottom-px h-0.5 bg-[#0A0A0A] rounded-full"
+                  aria-hidden
+                />
               )}
             </button>
           );

@@ -1,1 +1,0 @@
-import{j as e}from"./index-DFzcEMLh.js";import{B as t}from"./Badge-DmgHk6v7.js";import{G as r}from"./performance-DtSari8d.js";const s={draft:"default",active:"default",on_track:"success",at_risk:"warning",behind:"danger",completed:"success",cancelled:"default"};function d({status:a}){return e.jsx(t,{variant:s[a],children:r[a]})}export{d as G};

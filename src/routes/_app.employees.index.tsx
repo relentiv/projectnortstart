@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
 import {
   Breadcrumb,
   Button,
@@ -88,6 +89,7 @@ function EmployeesPage() {
           <div className="flex items-center gap-3">
             <input
               type="checkbox"
+              aria-label={`Select ${e.firstName} ${e.lastName}`}
               onClick={(ev) => ev.stopPropagation()}
               checked={selection.has(e.id)}
               onChange={() =>
@@ -98,32 +100,66 @@ function EmployeesPage() {
                   return n;
                 })
               }
+              className="h-4 w-4 accent-[#0A0A0A] rounded cursor-pointer shrink-0"
             />
-            <EmployeeAvatar employee={e} size="sm" />
+            <EmployeeAvatar employee={e} size="sm" className="rounded-xl shrink-0" />
             <div className="min-w-0">
-              <p className="font-medium text-[14px] truncate">{e.firstName} {e.lastName}</p>
-              <p className="text-[12px] text-[#6B6B6B] truncate">{e.employeeCode}</p>
+              <Link
+                to="/employees/$employeeId"
+                params={{ employeeId: e.id }}
+                className="font-bold text-[14px] text-[#0A0A0A] hover:text-orange-600 transition-colors truncate block"
+              >
+                {e.firstName} {e.lastName}
+              </Link>
+              <span className="inline-block mt-0.5 px-2 py-0.2 rounded-md bg-[#FAFAF9] border border-[#E5E5E3] font-bold text-[10px] text-[#6B6B6B] tabular-nums">
+                {e.employeeCode}
+              </span>
             </div>
           </div>
         ),
       },
-      { key: "dept", label: "Department", render: (e) => deptName(e.departmentId) },
-      { key: "desig", label: "Designation", render: (e) => desigName(e.designationId) },
-      { key: "type", label: "Type", render: (e) => EMPLOYMENT_TYPE_LABELS[e.employmentType] },
+      {
+        key: "dept",
+        label: "Department",
+        render: (e) => <span className="font-semibold text-[#0A0A0A]">{deptName(e.departmentId)}</span>,
+      },
+      {
+        key: "desig",
+        label: "Designation",
+        render: (e) => <span className="font-medium text-[#404040]">{desigName(e.designationId)}</span>,
+      },
+      {
+        key: "type",
+        label: "Type",
+        render: (e) => (
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-lg text-[11px] font-bold bg-[#FAFAF9] text-[#0A0A0A] border border-[#E5E5E3]">
+            {EMPLOYMENT_TYPE_LABELS[e.employmentType]}
+          </span>
+        ),
+      },
       { key: "status", label: "Status", render: (e) => <EmployeeStatusBadge status={e.employmentStatus} size="sm" /> },
-      { key: "joined", label: "Joined", render: (e) => new Date(e.dateOfJoining).toLocaleDateString() },
+      {
+        key: "joined",
+        label: "Joined",
+        render: (e) => (
+          <span className="text-[12px] font-semibold text-[#6B6B6B] tabular-nums">
+            {new Date(e.dateOfJoining).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+          </span>
+        ),
+      },
       {
         key: "actions",
-        label: "",
+        label: "Action",
         align: "right",
         render: (e) => (
           <Link
             to="/employees/$employeeId"
             params={{ employeeId: e.id }}
             onClick={(ev) => ev.stopPropagation()}
-            className="text-[12px] text-[var(--tenant-primary)] hover:underline"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#FAFAF9] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-white border border-[#E5E5E3] hover:border-[#0A0A0A] font-bold text-[11px] transition-all duration-200 shadow-2xs group/btn shrink-0"
           >
-            View →
+            View Profile
+            <ArrowUpRight className="w-3 h-3 text-[#8E8E8E] group-hover/btn:text-white transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
           </Link>
         ),
       },

@@ -1,1 +1,0 @@
-import{j as e,$ as n}from"./index-DFzcEMLh.js";import{B as r}from"./Badge-DmgHk6v7.js";const s={draft:"default",in_review:"tenant-accent",finalised:"success",paid:"success",cancelled:"danger"};function i({status:a}){return e.jsx(r,{variant:s[a],children:n[a]})}export{i as P};

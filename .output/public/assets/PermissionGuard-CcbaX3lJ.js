@@ -1,1 +1,0 @@
-import{j as r}from"./index-DFzcEMLh.js";import{u as n}from"./usePermission-XcUGQZsP.js";function l({permission:a,mode:t="any",fallback:e=null,children:o}){return(Array.isArray(a)?n(a,t):n(a))?r.jsx(r.Fragment,{children:o}):r.jsx(r.Fragment,{children:e})}export{l as P};

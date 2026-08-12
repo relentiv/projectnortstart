@@ -1,0 +1,1 @@
+import{j as e,$ as n}from"./index-DlX_L1Z2.js";import{B as r}from"./Badge-nRe59W2R.js";const s={draft:"default",in_review:"tenant-accent",finalised:"success",paid:"success",cancelled:"danger"};function i({status:a}){return e.jsx(r,{variant:s[a],children:n[a]})}export{i as P};
